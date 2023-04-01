@@ -37,6 +37,10 @@ public class PassengarePlane extends AerialVehicle {
         } else return false;
     }
 
+    public int remainingDistance() {
+        return ((currentFuel / fuelConsumptionInLitersPerHour) * maxSpeed);
+    }
+
     @Override
     protected int getMaxFlyingDistance() {
         return ((fuelCapacity / fuelConsumptionInLitersPerHour) * maxSpeed);
