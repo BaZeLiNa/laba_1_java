@@ -17,7 +17,8 @@ public class Fighter extends AerialVehicle {
     private int fuelConsumptionInLitersPerHour;
     private int currentFuel;
 
-    public Fighter(String manufacturer, int maxSpeed, EngineType engineType, int maxWeaponWeight, int fuelCapacity, int fuelConsumptionInLitersPerHour, int currentFuel) {
+    public Fighter(String manufacturer, int maxSpeed, EngineType engineType, int maxWeaponWeight, int fuelCapacity,
+                   int fuelConsumptionInLitersPerHour, int currentFuel) {
         super(manufacturer, maxSpeed, engineType);
         this.maxWeaponWeight = maxWeaponWeight;
         this.fuelCapacity = fuelCapacity;

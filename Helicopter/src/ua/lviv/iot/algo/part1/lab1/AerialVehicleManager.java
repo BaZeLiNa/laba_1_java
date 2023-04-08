@@ -23,15 +23,15 @@ public class AerialVehicleManager {
     }
 
     public List<AerialVehicle> findSpeedGreaterThan(int speed) {
-        return (List<AerialVehicle>) aerialVehicles.stream().
-                filter(AerialVehicle -> AerialVehicle.getMaxSpeed() <= speed).
-                collect(Collectors.toList());
+        return aerialVehicles.stream()
+                .filter(AerialVehicle -> AerialVehicle.getMaxSpeed() <= speed)
+                .collect(Collectors.toList());
     }
 
     public List<AerialVehicle> findByEngineType(EngineType engineType) {
-        return (List<AerialVehicle>) aerialVehicles.stream().
-                filter(AerialVehicle -> AerialVehicle.getEngineType() == engineType).
-                collect(Collectors.toList());
+        return aerialVehicles.stream()
+                .filter(AerialVehicle -> AerialVehicle.getEngineType() == engineType)
+                .collect(Collectors.toList());
     }
 
     public static void main(String[] args) {
@@ -49,13 +49,10 @@ public class AerialVehicleManager {
         }
         System.out.println("\n\nAerial vehicle faster than 200 km/h:");
         var vehiclesSpeedGreaterThan = aerialVehicleManager.findSpeedGreaterThan(200);
-        for (var aerialVehicle : vehiclesSpeedGreaterThan) {
-            System.out.println(aerialVehicle);
-        }
+        vehiclesSpeedGreaterThan.stream().forEach(System.out::println);
+
         System.out.println("\n\nElectric aerial vehicle:");
         var electricAerialVehicle = aerialVehicleManager.findByEngineType(EngineType.Electric);
-        for (var aerialVehicle : electricAerialVehicle) {
-            System.out.println(aerialVehicle);
-        }
+        electricAerialVehicle.stream().forEach(System.out::println);
     }
 }

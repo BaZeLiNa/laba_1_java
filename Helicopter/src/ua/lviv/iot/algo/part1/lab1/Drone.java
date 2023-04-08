@@ -28,10 +28,12 @@ public class Drone extends AerialVehicle {
         this.maxCargoWeightInGrams = maxCargoWeightInGrams;
     }
 
+    @Override
     public int getMaxFlyingDistance() {
         return (int) (maxSpeed * (maxBatteryCapacityInPercentage / chargeConsumpingPerMinuteInPercentage));
     }
 
+    @Override
     public int getMaxDeliveryWeight() {
         return maxCargoWeightInGrams + maxWeaponWeightInGrams;
     }
