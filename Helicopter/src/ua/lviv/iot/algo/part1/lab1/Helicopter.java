@@ -1,19 +1,41 @@
 package ua.lviv.iot.algo.part1.lab1;
 
-import lombok.*;
+import lombok.Setter;
+import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
-public class Helicopter {
+@ToString(callSuper = true)
+public class Helicopter extends AerialVehicle {
     private int id = 100;
     private String model;
     private int currentAltitude;
     private int maxAltitude;
     private int fuelCapacity;
     private int currentFuel;
+    private int fuelConsumptionInLitersPerHour;
+    private int maxWeaponWeight;
+    private int maxCargoWeight;
+
+    public Helicopter(String manufacturer, int maxSpeed, EngineType engineType, int id, String model,
+                      int currentAltitude, int maxAltitude, int fuelCapacity, int currentFuel,
+                      int fuelConsumptionInLitersPerHour, int maxWeaponWeight, int maxCargoWeight) {
+        super(manufacturer, maxSpeed, engineType);
+        this.id = id;
+        this.model = model;
+        this.currentAltitude = currentAltitude;
+        this.maxAltitude = maxAltitude;
+        this.fuelCapacity = fuelCapacity;
+        this.currentFuel = currentFuel;
+        this.fuelConsumptionInLitersPerHour = fuelConsumptionInLitersPerHour;
+        this.maxWeaponWeight = maxWeaponWeight;
+        this.maxCargoWeight = maxCargoWeight;
+    }
 
     public void takeOff() {
         this.currentAltitude = 100;
@@ -47,16 +69,14 @@ public class Helicopter {
         }
     }
 
-    public static void main(String[] args) {
-        Helicopter[] helicopters = {
-                new Helicopter(),
-                new Helicopter(200, "MI-24", 0, 800, 200, 50),
-                Helicopter.getInstance(),
-                Helicopter.getInstance()
-        };
 
-        for (Helicopter helicopter : helicopters) {
-            System.out.println(helicopter.toString());
-        }
+    @Override
+    public int getMaxFlyingDistance() {
+        return ((fuelCapacity / fuelConsumptionInLitersPerHour) * maxSpeed);
+    }
+
+    @Override
+    public int getMaxDeliveryWeight() {
+        return maxCargoWeight + maxWeaponWeight;
     }
 }
