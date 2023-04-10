@@ -1,1 +1,7 @@
-ua\lviv\iot\App.class
+ua\lviv\iot\Helicopter.class
+ua\lviv\iot\PassengarePlane.class
+ua\lviv\iot\EngineType.class
+ua\lviv\iot\AerialVehicle.class
+ua\lviv\iot\AerialVehicleManager.class
+ua\lviv\iot\Drone.class
+ua\lviv\iot\Fighter.class

@@ -1,4 +1,4 @@
-package ua.lviv.iot;
+package $org.example;
 
 /**
  * Hello world!
