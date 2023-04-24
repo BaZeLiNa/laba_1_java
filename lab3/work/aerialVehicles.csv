@@ -1,0 +1,16 @@
+manufacturer, maxSpeed, engineType, id, model, currentAltitude, maxAltitude, fuelCapacity, currentFuel, fuelConsumptionInLitersPerHour, maxWeaponWeight,maxCargoWeight
+Boeing, 120, Piston, 200, CH-47, 0, 3000, 600, 560, 35, 600, 500
+manufacturer, maxSpeed, engineType, id, model, currentAltitude, maxAltitude, fuelCapacity, currentFuel, fuelConsumptionInLitersPerHour, maxWeaponWeight,maxCargoWeight
+Bell, 150, Piston, 300, UH-1, 1200, 2200, 500, 300, 40, 400, 300
+manufacturer, maxSpeed, engineType, batteryCapacityIn_mAh, chargeConsumpingPerMinuteInPercentage, maxWeaponWeightInGrams, maxCargoWeightInGrams, maxBatteryCapacityInPercentage
+DJI, 50, Electric, 5000, 4.0, 100, 200, 100
+manufacturer, maxSpeed, engineType, batteryCapacityIn_mAh, chargeConsumpingPerMinuteInPercentage, maxWeaponWeightInGrams, maxCargoWeightInGrams, maxBatteryCapacityInPercentage
+DJI 2, 30, Electric, 6000, 2.0, 0, 500, 100
+manufacturer, maxSpeed, engineType, maxWeaponWeight, fuelCapacity, fuelConsumptionInLitersPerHour, currentFuel
+F-14, 1300, GasTurbine, 600, 400, 150, 350
+manufacturer, maxSpeed, engineType, maxWeaponWeight, fuelCapacity, fuelConsumptionInLitersPerHour, currentFuel
+F-16, 1500, GasTurbine, 700, 600, 140, 600
+manufacturer, maxSpeed, engineType, maxCargoWeight, maxPassengersWeight, fuelCapacity, fuelConsumptionInLitersPerHour, currentFuel
+Boeing 747, 800, GasTurbine, 25000, 10000, 40000, 400, 25000
+manufacturer, maxSpeed, engineType, maxCargoWeight, maxPassengersWeight, fuelCapacity, fuelConsumptionInLitersPerHour, currentFuel
+Boeing 737, 700, GasTurbine, 20000, 15000, 30000, 500, 28000

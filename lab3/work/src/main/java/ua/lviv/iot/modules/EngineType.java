@@ -1,4 +1,4 @@
-package ua.lviv.iot;
+package ua.lviv.iot.modules;
 
 public enum EngineType {
     Electric,

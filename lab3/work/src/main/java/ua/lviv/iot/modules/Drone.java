@@ -1,4 +1,4 @@
-package ua.lviv.iot;
+package ua.lviv.iot.modules;
 
 import lombok.Setter;
 import lombok.Getter;
@@ -12,6 +12,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString(callSuper = true)
 public class Drone extends AerialVehicle {
+    public static final String HEADERS = "batteryCapacityIn_mAh, chargeConsumpingPerMinuteInPercentage, maxWeaponWeightInGrams, maxCargoWeightInGrams, maxBatteryCapacityInPercentage";
     private int batteryCapacityIn_mAh;
     private double chargeConsumpingPerMinuteInPercentage;
     private int maxWeaponWeightInGrams;
@@ -27,7 +28,14 @@ public class Drone extends AerialVehicle {
         this.maxWeaponWeightInGrams = maxWeaponWeightInGrams;
         this.maxCargoWeightInGrams = maxCargoWeightInGrams;
     }
-
+    @Override
+    public String toCSV(){
+        return super.toCSV() + ", " + batteryCapacityIn_mAh + ", " + chargeConsumpingPerMinuteInPercentage + ", " + maxWeaponWeightInGrams + ", " + maxCargoWeightInGrams + ", " + maxBatteryCapacityInPercentage + "\n";
+    }
+    @Override
+    public String getHeaders(){
+        return super.getHeaders() + ", " + HEADERS + "\n";
+    }
     @Override
     public int getMaxFlyingDistance() {
         return (int) (maxSpeed * (maxBatteryCapacityInPercentage / chargeConsumpingPerMinuteInPercentage));

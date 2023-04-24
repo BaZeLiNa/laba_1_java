@@ -1,10 +1,13 @@
-package ua.lviv.iot;
+package ua.lviv.iot.manager;
 
+import lombok.*;
+import ua.lviv.iot.modules.*;
+import ua.lviv.iot.writer.AerialVehicleWriter;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import lombok.*;
 
 @Setter
 @Getter
@@ -30,7 +33,7 @@ public class AerialVehicleManager {
                 .collect(Collectors.toList());
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         AerialVehicleManager aerialVehicleManager = new AerialVehicleManager();
         aerialVehicleManager.addAerialVehicle(new Helicopter("Boeing", 120, EngineType.Piston, 200, "CH-47", 0, 3000, 600, 560, 35, 600, 500));
         aerialVehicleManager.addAerialVehicle(new Helicopter("Bell", 150, EngineType.Piston, 300, "UH-1", 1200, 2200, 500, 300, 40, 400, 300));
@@ -50,5 +53,11 @@ public class AerialVehicleManager {
         System.out.println("\n\nElectric aerial vehicle:");
         var electricAerialVehicle = aerialVehicleManager.findByEngineType(EngineType.Electric);
         electricAerialVehicle.stream().forEach(System.out::println);
+
+        List<AerialVehicle> aerialVehicles = aerialVehicleManager.aerialVehicles;
+        AerialVehicleWriter aerialVehicleWriter = new AerialVehicleWriter();
+        aerialVehicleWriter.writeToCsv(aerialVehicles,"aerialVehicles.csv");
     }
 }
+
+

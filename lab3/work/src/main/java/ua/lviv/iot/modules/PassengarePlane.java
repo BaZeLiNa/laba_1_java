@@ -1,4 +1,4 @@
-package ua.lviv.iot;
+package ua.lviv.iot.modules;
 
 import lombok.Setter;
 import lombok.Getter;
@@ -12,6 +12,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString(callSuper = true)
 public class PassengarePlane extends AerialVehicle {
+    public static final String HEADERS = "maxCargoWeight, maxPassengersWeight, fuelCapacity, fuelConsumptionInLitersPerHour, currentFuel";
     private int maxCargoWeight;
     private int maxPassengersWeight;
     private int fuelCapacity;
@@ -41,6 +42,14 @@ public class PassengarePlane extends AerialVehicle {
         return ((currentFuel / fuelConsumptionInLitersPerHour) * maxSpeed);
     }
 
+    @Override
+    public String toCSV() {
+        return super.toCSV() + ", " + maxCargoWeight + ", " + maxPassengersWeight + ", " + fuelCapacity + ", " + fuelConsumptionInLitersPerHour + ", " + currentFuel + "\n";
+    }
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() + ", " + HEADERS + "\n";
+    }
     @Override
     protected int getMaxFlyingDistance() {
         return ((fuelCapacity / fuelConsumptionInLitersPerHour) * maxSpeed);

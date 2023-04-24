@@ -1,4 +1,4 @@
-package ua.lviv.iot;
+package ua.lviv.iot.modules;
 
 import lombok.Setter;
 import lombok.Getter;
@@ -12,6 +12,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString(callSuper = true)
 public class Fighter extends AerialVehicle {
+    public static final String HEADERS = "maxWeaponWeight, fuelCapacity, fuelConsumptionInLitersPerHour, currentFuel";
     private int maxWeaponWeight;
     private int fuelCapacity;
     private int fuelConsumptionInLitersPerHour;
@@ -40,6 +41,14 @@ public class Fighter extends AerialVehicle {
             this.currentFuel = fuelRequired;
             return true;
         } else return false;
+    }
+    @Override
+    public String toCSV() {
+        return super.toCSV() + ", " + maxWeaponWeight + ", " + fuelCapacity + ", " + fuelConsumptionInLitersPerHour + ", " + currentFuel + "\n";
+    }
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() + ", " + HEADERS + "\n";
     }
 
     @Override
