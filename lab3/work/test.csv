@@ -1,0 +1,4 @@
+manufacturer, maxSpeed, engineType, batteryCapacityIn_mAh, chargeConsumpingPerMinuteInPercentage, maxWeaponWeightInGrams, maxCargoWeightInGrams, maxBatteryCapacityInPercentage
+DJI, 50, Electric, 5000, 4.0, 100, 200, 100
+manufacturer, maxSpeed, engineType, maxWeaponWeight, fuelCapacity, fuelConsumptionInLitersPerHour, currentFuel
+F-14, 1300, GasTurbine, 600, 400, 150, 350
