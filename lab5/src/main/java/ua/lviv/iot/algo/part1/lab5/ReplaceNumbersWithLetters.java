@@ -1,15 +1,18 @@
 package ua.lviv.iot.algo.part1.lab5;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ReplaceNumbersWithLetters {
     private String text;
     private int length;
-    public ReplaceNumbersWithLetters (String text, int length){
+
+    public ReplaceNumbersWithLetters(String text, int length) {
         this.text = text;
         this.length = length;
     }
-    public void doOperation(){
+
+    public void doOperation() {
         Pattern pattern = Pattern.compile("\\b[1-9]\\b");
         Matcher matcher = pattern.matcher(text);
         StringBuffer result = new StringBuffer();
@@ -22,6 +25,7 @@ public class ReplaceNumbersWithLetters {
         matcher.appendTail(result);
         System.out.println(result.toString());
     }
+
     public static void main(String[] args) {
         if (args.length < 2) {
             System.out.println("Usage: java ReplaceNumbersWithLetters <text> <length>");
