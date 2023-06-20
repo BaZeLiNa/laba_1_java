@@ -6,15 +6,18 @@ import java.util.regex.Pattern;
 public class ReplaceNumbersWithLetters {
     private String text;
     private int length;
+    public final Pattern SINGLE_DIGIT_PATTERN = Pattern.compile("(?<!\\S)[1-9](?!\\S)");
 
     public ReplaceNumbersWithLetters(String text, int length) {
         this.text = text;
         this.length = length;
+        if (text == null) {
+            this.text = "";
+        }
     }
 
-    public void doOperation() {
-        Pattern pattern = Pattern.compile("\\b[1-9]\\b");
-        Matcher matcher = pattern.matcher(text);
+    public String replaceOneDigitNumbers() {
+        Matcher matcher = SINGLE_DIGIT_PATTERN.matcher(text);
         StringBuffer result = new StringBuffer();
         while (matcher.find()) {
             String match = matcher.group();
@@ -23,18 +26,19 @@ public class ReplaceNumbersWithLetters {
             matcher.appendReplacement(result, Character.toString(letter));
         }
         matcher.appendTail(result);
-        System.out.println(result.toString());
+        return result.toString();
     }
 
     public static void main(String[] args) {
         if (args.length < 2) {
-            System.out.println("Usage: java ReplaceNumbersWithLetters <text> <length>");
+            System.out.println("Incorrect number of parameters");
             return;
         }
         String text = args[0];
         int length = Integer.parseInt(args[1]);
 
         ReplaceNumbersWithLetters object = new ReplaceNumbersWithLetters(text, length);
-        object.doOperation();
+        object.replaceOneDigitNumbers();
     }
+
 }
